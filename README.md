@@ -22,3 +22,11 @@ Spring Boot Dev Tools
  MariaDB Driver
 
 ![image](https://user-images.githubusercontent.com/76720785/197330014-ae8f6463-f094-4ce9-8411-b9fca265d365.png)
+
+3.매인화면을 만들고 확인
+
+4.데이터의 생성날짜와 수정 날짜를 자동으로 설정하기위한 작업
+108
+-------
+
+데이터 베이스 설계
