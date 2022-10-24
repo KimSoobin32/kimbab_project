@@ -30,3 +30,7 @@ Spring Boot Dev Tools
 
 
 데이터 베이스 설계
+
+
+10/24
+290
