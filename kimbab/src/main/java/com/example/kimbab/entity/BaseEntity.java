@@ -21,6 +21,6 @@ public abstract class BaseEntity {	//인스턴스 생성 불가능 하도록 abs
 	private LocalDateTime regDate;
 	
 	@LastModifiedDate
-	@Column(name = "mddate")
+	@Column(name = "moddate")
 	private LocalDateTime modDate;
 }
