@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Log4j2
 @Service
@@ -23,5 +26,19 @@ public class MenuServiceImpl implements MenuService{
         Menu result = menuRepository.save(entity);
 
         return result.getMid();
+    }
+
+    @Override
+    public List<Menu> getList() {
+
+        List<Menu> list = menuRepository.findAll();
+        return list;
+    }
+
+    @Override
+    public Optional<Menu> getOne(String mid) {
+        Optional<Menu> result = menuRepository.findById(mid);
+
+        return result;
     }
 }

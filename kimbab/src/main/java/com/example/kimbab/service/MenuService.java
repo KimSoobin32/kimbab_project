@@ -3,9 +3,16 @@ package com.example.kimbab.service;
 import com.example.kimbab.domain.MenuDTO;
 import com.example.kimbab.entity.Menu;
 
+import java.util.List;
+import java.util.Optional;
+
 public interface MenuService {
 
     public String register(MenuDTO dto);  //메뉴 등록
+
+    public List<Menu> getList(); //모든 메뉴 리스트
+
+    public Optional<Menu> getOne(String mid); //해당 아이디의 메뉴 정보
 
     default Menu dtoToEntity(MenuDTO dto){
         Menu entity = Menu.builder()
