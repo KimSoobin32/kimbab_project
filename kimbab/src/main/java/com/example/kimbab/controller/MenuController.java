@@ -20,7 +20,7 @@ public class MenuController {
 		log.info("/");
 		return "kimbab/list";
 	}
-
+	//http://localhost/kimbab/list
 	//void 리턴 시 요청 url이 view의 이름이 됨
 	@GetMapping({"/kimbab/list"})
 	public void list(MenuDTO dto, Model model){

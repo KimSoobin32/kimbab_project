@@ -2,6 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{/layout/basic:: setContent(~{this::content} )}">
   <th:block th:fragment="content">
-    <h1>kimbab</h1>
+    <h1>kimbab Menu</h1>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Menu Id</th>
+        <th scope="col">이미지</th>
+        <th scope="col">카테고리</th>
+        <th scope="col">메뉴명</th>
+        <th scope="col">가격</th>
+        <th scope="col">Sold Out</th>
+        <th scope="col">등록일</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="dto : ${result}" >
+        <th scope="row">[[${dto.mid}]]</th>
+        <td>[[${dto.img}]]</td>
+        <td>[[${dto.cate}]]</td>
+        <td>[[${dto.title}]]</td>
+        <td>[[${dto.price}]]</td>
+        <td>[[${dto.soldout}]]</td>
+        <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+      </tr>
+      </tbody>
+    </table>
+
   </th:block>
 </th:block>
