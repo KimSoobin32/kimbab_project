@@ -21,20 +21,22 @@
         <th scope="col">가격</th>
         <th scope="col">Sold Out</th>
         <th scope="col">등록일</th>
+        <th scope="col">수정일</th>
       </tr>
       </thead>
       <tbody>
       <tr th:each="dto : ${result}" >
         <th scope="row">[[${dto.mid}]]</th>
-        <td th:if = "${dto.img != null && dto.img != ''}"><img th:src="${dto.img}" width="20" height="20"> </td>
+        <td th:if = "${dto.img != null && dto.img != ''}"><img src="${dto.img}" width="20" height="20"> </td>
         <td th:if = "${(dto.img == null || dto.img == '') && dto.cate=='food'}"><img src="../assets/kimbab_default.jpg" width="20" height="20"> </td>
         <td th:if = "${(dto.img == null || dto.img == '') && dto.cate=='drink'}"><img src="../assets/drink_default.jpg" width="20" height="20"> </td>
         <td>[[${dto.cate}]]</td>
-        <td> <a th:href="@{/kimbab/read(gno = ${dto.mid},page=${result.page})}">[[${dto.title}]] </a></td>
+        <td> <a th:href="@{/kimbab/read(mid = ${dto.mid})}">[[${dto.title}]] </a></td>
         <td>[[${dto.price}]]</td>
         <td th:if = "${dto.soldout == 1}">Y</td>
         <td th:if = "${dto.soldout == 0}">N</td>
         <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+        <td>[[${#temporals.format(dto.modDate, 'yyyy/MM/dd')}]]</td>
       </tr>
       </tbody>
     </table>

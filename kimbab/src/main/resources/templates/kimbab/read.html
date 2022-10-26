@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic:: setContent(~{this::content} )}">
+  <th:block th:fragment="content">
+    <h1 class="mt-4">메뉴 상세보기</h1>
+    <div class="form-group">
+      <label >카테고리*</label>
+      <input type="text" class="form-control" name="cate" th:value="${dto.cate}" >
+<!--      <select name="cate" class="form-select" aria-label="Default select example">-->
+<!--        <option selected value="food">food</option>-->
+<!--        <option value="drink">drink</option>-->
+<!--      </select>-->
+    </div>
+    <div class="form-group">
+      <label >Menu ID*</label>
+      <input type="text" class="form-control" name="mid" th:value="${dto.mid}" >
+    </div>
+    <div class="form-group">
+      <label>메뉴명*</label>
+      <input type="text" class="form-control" name="title" th:value="${dto.title}" >
+    </div>
+    <div class="form-group">
+      <label >가격*</label>
+      <input type="text" class="form-control" name="price" maxlength="10" th:value="${dto.price}">
+    </div>
+    <div class="form-group">
+      <label >매진 여부*</label>
+      <input type="text" class="form-control" name="soldout" maxlength="10" th:value="${dto.soldout}">
+    </div>
+    <div class="form-group">
+      <label >태그</label>
+      <input type="text" class="form-control" name="tag" maxlength="10" th:value="${dto.tag}">
+    </div>
+    <div class="form-group">
+      <label >설명</label>
+      <textarea class="form-control" rows="5" name="content">[[${dto.content}]]</textarea>
+    </div>
+
+    <a th:href="@{/kimbab/list}"><button type="button" class="btn btn-info">목록보기</button></a>
+
+  </th:block>
+</th:block>

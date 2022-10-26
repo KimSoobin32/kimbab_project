@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.extern.log4j.Log4j2;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -64,5 +65,17 @@ public class MenuController {
 
 		return "redirect:/kimbab/list";
 	}
+
+	//상세 보기
+	//ModelAttribute : 매개변수를 결과 페이지에 넘겨줄 때 사용 (어떤 처리 안하고 바로 넘겨줄 때..
+	@GetMapping("/kimbab/read")
+	public void read(String mid, Model model){
+		MenuDTO dto = menuService.getOne(mid);
+		log.info("메뉴 상세 보기");
+		log.info(dto.getRegDate());
+		model.addAttribute("dto",dto);
+
+	}
+
 	
 }

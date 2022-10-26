@@ -49,7 +49,7 @@ public class MenuServiceImpl implements MenuService{
     public MenuDTO getOne(String mid) {
         log.info("메뉴 조회");
         Optional<Menu> result = menuRepository.findById(mid);
-
+        
         return result.isPresent() ? entityToDto(result.get()) : null;
     }
 
