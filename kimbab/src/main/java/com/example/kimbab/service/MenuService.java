@@ -12,7 +12,7 @@ public interface MenuService {
 
     public List<Menu> getList(); //모든 메뉴 리스트 조회
 
-    public Optional<Menu> getOne(String mid); //해당 아이디의 메뉴 정보 조회
+    public MenuDTO getOne(String mid); //해당 아이디의 메뉴 정보 조회
 
     public Optional<Menu> updateMenu(MenuDTO dto);  //메뉴 수정
 
