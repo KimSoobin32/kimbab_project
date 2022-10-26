@@ -30,7 +30,7 @@
         <td th:if = "${(dto.img == null || dto.img == '') && dto.cate=='food'}"><img src="../assets/kimbab_default.jpg" width="20" height="20"> </td>
         <td th:if = "${(dto.img == null || dto.img == '') && dto.cate=='drink'}"><img src="../assets/drink_default.jpg" width="20" height="20"> </td>
         <td>[[${dto.cate}]]</td>
-        <td>[[${dto.title}]]</td>
+        <td> <a th:href="@{/kimbab/read(gno = ${dto.mid},page=${result.page})}">[[${dto.title}]] </a></td>
         <td>[[${dto.price}]]</td>
         <td th:if = "${dto.soldout == 1}">Y</td>
         <td th:if = "${dto.soldout == 0}">N</td>

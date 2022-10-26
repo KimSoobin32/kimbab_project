@@ -39,12 +39,8 @@ public class ServiceTest {
     //@Test
     public void getOneTest(){
         String mid = "402881c784081b1c0184081b26b80001";
-        Optional<Menu> result = menuService.getOne(mid);
-        if(result.isPresent()) {
-            System.out.println(result.get());
-        }else{
-            System.out.println("데이터 없음");
-        }
+        MenuDTO result = menuService.getOne(mid);
+        System.out.println(result);
     }
 
     //@Test
