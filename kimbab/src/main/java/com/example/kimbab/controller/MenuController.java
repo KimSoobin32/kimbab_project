@@ -119,7 +119,7 @@ public class MenuController {
 		log.info("menu delete");
 		try {
 			Optional<Menu> result = menuService.deleteMenu(dto);
-			if(result.isEmpty()){
+			if(!result.isPresent()){
 				redirectAttributes.addFlashAttribute("msg","mid: "+dto.getMid()+" 삭제 완료");
 			}else {
 				throw new Exception("delete 실패");

@@ -1,20 +1,13 @@
 package com.example.kimbab;
 
-import com.example.kimbab.entity.Menu;
-import com.example.kimbab.entity.QMenu;
-import com.example.kimbab.persistence.MenuRepository;
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.dsl.BooleanExpression;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.IntStream;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.kimbab.entity.Menu;
+import com.example.kimbab.persistence.MenuRepository;
 
 @SpringBootTest
 public class RepositoryTest {
@@ -97,28 +90,14 @@ public class RepositoryTest {
     }
 
     //@Test
-    public void selectAllTest(){
-        List<Menu> list = menuRepository.findAll();
-        for(Menu menu : list){
-            System.out.println(menu);
-        }
-    }
+//    public void selectAllTest(){
+//        List<Menu> list = menuRepository.findAll();
+//        for(Menu menu : list){
+//            System.out.println(menu);
+//        }
+//    }
 
-    //@Test
-    public void testQuery1(){
-        Pageable pageable = PageRequest.of(0,2);
-        QMenu qMenu = QMenu.menu;
-        String keyword="김밥";
-        BooleanBuilder builder = new BooleanBuilder();
 
-        BooleanExpression expression = qMenu.title.contains(keyword);
-        builder.and(expression);
-        Page<Menu> result = menuRepository.findAll(builder, pageable);
-        result.stream().forEach(menu -> {
-            System.out.println(menu);
-        });
-
-    }
 
 
 }
