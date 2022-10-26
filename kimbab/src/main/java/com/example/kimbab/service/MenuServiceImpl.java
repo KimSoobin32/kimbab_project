@@ -30,7 +30,7 @@ public class MenuServiceImpl implements MenuService{
     public String register(MenuDTO dto) {
         log.info("메뉴 등록");
         log.info(dto);
-        validate(dto);
+
         Menu entity = dtoToEntity(dto);
 
         Menu result = menuRepository.save(entity);
