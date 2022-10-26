@@ -7,16 +7,17 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div th:each="dto : ${result}" class="col">
                 <div class="card h-100">
-                    <img th:if = "${(dto.img == null || dto.img == '') && dto.soldout==1}" src="../assets/soldout.jpg" class="card-img-top" alt="${dto.title}">
-                    <img th:if = "${dto.img != null && dto.img != ''}" src="../assets/kimbab_default.jpg" class="card-img-top" alt="${dto.title}">
-                    <img th:if = "${(dto.img == null || dto.img == '') && dto.cate=='food'&& dto.soldout==0}" src="../assets/kimbab_default.jpg" class="card-img-top" alt="${dto.cate}">
-                    <img th:if = "${(dto.img == null || dto.img == '') && dto.cate=='drink'&& dto.soldout==0}" src="../assets/drink_default.jpg" class="card-img-top" alt="${dto.cate}">
+                    <img th:if = "${(dto.img == null || dto.img == '') && dto.soldout==1}" src="../assets/soldout.jpg" class="card-img-top" alt="${dto.title}" height="400">
+                    <img th:if = "${dto.img != null && dto.img != ''}" src="../assets/kimbab_default.jpg" class="card-img-top" alt="${dto.title}" height="400">
+                    <img th:if = "${(dto.img == null || dto.img == '') && dto.cate=='food'&& dto.soldout==0}" src="../assets/kimbab_default.jpg" class="card-img-top" alt="${dto.cate}" height="400">
+                    <img th:if = "${(dto.img == null || dto.img == '') && dto.cate=='drink'&& dto.soldout==0}" src="../assets/drink_default.jpg" class="card-img-top" alt="${dto.cate}" height="400">
                     <div class="card-body">
+                        <h4 class="bg-secondary" th:if = "${dto.tag != null && dto.tag != ''}">[[${dto.tag}]]</h4>
                         <h5 class="card-title">[[${dto.title}]]</h5>
                         <p class="card-text">[[${dto.content}]]</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">[[${dto.price}]]</small>
+                        <small class="text-muted">[[${dto.price}]] 원</small>
                     </div>
                 </div>
             </div>
