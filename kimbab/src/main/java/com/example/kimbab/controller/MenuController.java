@@ -97,6 +97,25 @@ public class MenuController {
 
 		return "redirect:/kimbab/list"; 
 	}
+
+	//메뉴 삭제
+	@PostMapping("/kimbab/delete")
+	public String delete(MenuDTO dto, RedirectAttributes redirectAttributes){
+		log.info("menu delete");
+		try {
+			Optional<Menu> result = menuService.deleteMenu(dto);
+			if(result.isEmpty()){
+				redirectAttributes.addFlashAttribute("msg","mid: "+dto.getMid()+" 삭제 완료");
+			}else {
+				throw new Exception("delete 실패");
+			}
+		}catch (Exception e){
+			log.error("에러"+e.getMessage());
+
+		}
+
+		return "redirect:/kimbab/list";
+	}
 		
 	
 
