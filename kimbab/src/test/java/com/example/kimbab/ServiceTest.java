@@ -36,7 +36,7 @@ public class ServiceTest {
         });
     }
 
-    @Test
+    //@Test
     public void getOneTest(){
         String mid = "402881c784081b1c0184081b26b80001";
         Optional<Menu> result = menuService.getOne(mid);
@@ -45,6 +45,29 @@ public class ServiceTest {
         }else{
             System.out.println("데이터 없음");
         }
+    }
+
+    //@Test
+    public void updateTest(){
+        MenuDTO dto = MenuDTO.builder()
+                .mid("402881c784081b1c0184081b26c50002")
+                .cate("food")
+                .title("원조김밥")
+                .price(2500)
+                .soldout(1)
+                .build();
+        Optional<Menu> list = menuService.updateMenu(dto);
+        System.out.println("삽입된 메뉴"+list);
+    }
+
+    //@Test
+    public void deleteTest(){
+        MenuDTO dto = MenuDTO.builder()
+                .mid("402881c784081b1c0184081b26c50002")
+                .build();
+        Optional<Menu> list = menuService.deleteMenu(dto);
+        System.out.println("삭제된 메뉴"+list);
+
     }
 
 }

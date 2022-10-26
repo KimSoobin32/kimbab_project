@@ -10,9 +10,13 @@ public interface MenuService {
 
     public String register(MenuDTO dto);  //메뉴 등록
 
-    public List<Menu> getList(); //모든 메뉴 리스트
+    public List<Menu> getList(); //모든 메뉴 리스트 조회
 
-    public Optional<Menu> getOne(String mid); //해당 아이디의 메뉴 정보
+    public Optional<Menu> getOne(String mid); //해당 아이디의 메뉴 정보 조회
+
+    public Optional<Menu> updateMenu(MenuDTO dto);  //메뉴 수정
+
+    public Optional<Menu> deleteMenu(MenuDTO dto);   //메뉴 삭제
 
     default Menu dtoToEntity(MenuDTO dto){
         Menu entity = Menu.builder()
