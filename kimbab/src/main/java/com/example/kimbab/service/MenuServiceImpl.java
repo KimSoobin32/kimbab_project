@@ -46,11 +46,11 @@ public class MenuServiceImpl implements MenuService{
     }
 
     @Override
-    public Optional<Menu> getOne(String mid) {
+    public MenuDTO getOne(String mid) {
         log.info("메뉴 조회");
         Optional<Menu> result = menuRepository.findById(mid);
 
-        return result;
+        return result.isPresent() ? entityToDto(result.get()) : null;
     }
 
     @Override
