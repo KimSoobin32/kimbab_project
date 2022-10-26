@@ -27,15 +27,23 @@ public class MenuController {
 	}
 
 	@GetMapping({"/kimbab/customers"})
-	public String customersPage() {
+	public String customersPage(Model model) {
 		log.info("/kimbab/customers");
+		try {
+			model.addAttribute("result",menuService.getList());
+			log.info("model"+model);
+
+		}catch (Exception e){
+			log.error("에러"+e.getMessage());
+
+		}
 		return "kimbab/customers";
 	}
 
 	//http://localhost/kimbab/list
 	//void 리턴 시 요청 url이 view의 이름이 됨
 	@GetMapping({"/kimbab/list"})
-	public void list(MenuDTO dto, Model model){	//전체 리스트 조회
+	public void list(Model model){	//전체 리스트 조회
 		log.info("list...");	 //리눅스 서버의 경우 앞에 / 쓰면 못 찾을 수 있음 (guestbook/list로 써야 함..)
 
 		//서비스 메서드 호출
