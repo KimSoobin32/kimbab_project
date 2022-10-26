@@ -46,10 +46,10 @@ public class ServiceTest {
     //@Test
     public void updateTest(){
         MenuDTO dto = MenuDTO.builder()
-                .mid("402881c784081b1c0184081b26c50002")
+                .mid("402881c784133c000184133c0a130000")
                 .cate("food")
                 .title("원조김밥")
-                .price(2500)
+                .price(3000)
                 .soldout(1)
                 .build();
         Optional<Menu> list = menuService.updateMenu(dto);

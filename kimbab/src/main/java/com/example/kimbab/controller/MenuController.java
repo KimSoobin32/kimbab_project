@@ -1,6 +1,7 @@
 package com.example.kimbab.controller;
 
 import com.example.kimbab.domain.MenuDTO;
+import com.example.kimbab.entity.Menu;
 import com.example.kimbab.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,9 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Optional;
 
 @Controller
 @Log4j2
@@ -70,12 +72,33 @@ public class MenuController {
 	//ModelAttribute : 매개변수를 결과 페이지에 넘겨줄 때 사용 (어떤 처리 안하고 바로 넘겨줄 때..
 	@GetMapping("/kimbab/read")
 	public void read(String mid, Model model){
-		MenuDTO dto = menuService.getOne(mid);
 		log.info("메뉴 상세 보기");
+		MenuDTO dto = menuService.getOne(mid);
 		log.info(dto.getRegDate());
 		model.addAttribute("dto",dto);
 
 	}
+
+	//메뉴 수정
+	@PostMapping("/kimbab/update")
+	public String update(MenuDTO dto, RedirectAttributes redirectAttributes){
+		log.info("menu update");
+		try {
+			Optional<Menu> result = menuService.updateMenu(dto);
+			if(result.isPresent()){
+				redirectAttributes.addFlashAttribute("msg","mid: "+dto.getMid()+" 수정 완료");
+			}else {
+				throw new Exception("update 실패");
+			}
+		}catch (Exception e){
+			log.error("에러"+e.getMessage());
+
+		}
+
+		return "redirect:/kimbab/list"; 
+	}
+		
+	
 
 	
 }
