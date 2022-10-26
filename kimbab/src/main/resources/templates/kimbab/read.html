@@ -5,7 +5,7 @@
     <h1 class="mt-4">메뉴 상세보기</h1>
     <form id="frm" name="frm">
     <div class="form-group">
-      <label >카테고리*</label>
+      <label >카테고리* (food/drink)</label>
       <input type="text" class="form-control" name="cate" th:value="${dto.cate}" >
 <!--      <select name="cate" class="form-select" aria-label="Default select example">-->
 <!--        <option selected value="food">food</option>-->
@@ -13,7 +13,7 @@
 <!--      </select>-->
     </div>
     <div class="form-group">
-      <label >Menu ID*</label>
+      <label >Menu ID</label>
       <input type="text" class="form-control" name="mid" th:value="${dto.mid}" readonly>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
       <input type="text" class="form-control" name="price" maxlength="10" th:value="${dto.price}">
     </div>
     <div class="form-group">
-      <label >매진 여부*</label>
+      <label >매진 여부* (0/1)</label>
       <input type="text" class="form-control" name="soldout" maxlength="10" th:value="${dto.soldout}">
     </div>
     <div class="form-group">

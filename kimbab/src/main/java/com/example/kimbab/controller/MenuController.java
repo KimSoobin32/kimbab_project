@@ -25,6 +25,13 @@ public class MenuController {
 		log.info("/");
 		return "kimbab/list";
 	}
+
+	@GetMapping({"/kimbab/customers"})
+	public String customersPage() {
+		log.info("/kimbab/customers");
+		return "kimbab/customers";
+	}
+
 	//http://localhost/kimbab/list
 	//void 리턴 시 요청 url이 view의 이름이 됨
 	@GetMapping({"/kimbab/list"})
