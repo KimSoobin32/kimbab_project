@@ -5,19 +5,22 @@
     <h1 class="mt-4">메뉴 등록</h1>
     <form name="frm" th:action="@{/kimbab/register}" th:method="post">
       <div class="form-group">
-        <label >카테고리</label>
-        <input type="text" class="form-control" name="cate" maxlength="10" placeholder="카테고리 입력">
+        <label >카테고리*</label>
+        <select name="cate" class="form-select" aria-label="Default select example">
+          <option selected value="food">food</option>
+          <option value="drink">drink</option>
+        </select>
       </div>
       <div class="form-group">
-        <label >메뉴명</label>
+        <label >메뉴명*</label>
         <input type="text" class="form-control" name="title" maxlength="20" placeholder="메뉴명 입력">
       </div>
       <div class="form-group">
-        <label >가격</label>
+        <label >가격*</label>
         <input type="text" class="form-control" name="price" maxlength="10" placeholder="가격 입력">
       </div>
       <div class="form-group">
-        <label >매진 여부</label>
+        <label >매진 여부*</label>
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="soldout" id="inlineRadio1" value="1">
           <label class="form-check-label" for="inlineRadio1">Y</label>
@@ -37,7 +40,7 @@
       </div>
       <div class="form-group">
         <label >이미지 URL</label>
-        <textarea class="form-control" rows="5" name="img"></textarea>
+        <textarea disabled class="form-control" rows="5" name="img"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">등록</button>
     </form>
